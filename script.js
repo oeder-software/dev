@@ -263,7 +263,7 @@ function RemCell(length)
     for (i=0; i<remNum.length; i++)
     {
       var num = 0;
-      for(j=1; j<remNum.length; j++ )
+      for(j=0; j<remNum.length; j++ )
       {
         if(remNum[i] == remNum[j])
         {
