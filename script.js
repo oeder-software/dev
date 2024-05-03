@@ -20,16 +20,20 @@ var elapsedPausedTime = 0; // to keep track of the elapsed time while stopped
 var level = "easy";
 function OnClickCell(cell)
 {
+  document.getElementById("clear").style.display="none"
+  document.getElementById(cell).style.cursor="not-allowed"
+  document.getElementById("numbers").hidden=true
   RemCellColor()
   var indexOfLine = cell[1];
   var indexOfPosition = cell[2]
   cellNum = cell;
   var empCell = "#" + cell;
-  var numToRemove;
-  
+  var isEmpty = false;
   remNum.forEach(item => {
     if(item == empCell){
-
+      isEmpty = true;
+      //document.getElementById(cell).style.background="#dffaf9"
+      //document.getElementById("clear").style.display="block"
       for(i = 1; i < 10; i++)
       {
         document.getElementById('l' + indexOfLine + i).style.background="#dffaf9"
@@ -38,9 +42,14 @@ function OnClickCell(cell)
       {
         document.getElementById('l' + i+ indexOfPosition).style.background="#dffaf9"
       }
-      document.getElementById(cell).style.background='white'
+      //document.getElementById(cell).style.background='white'
     }
   });
+  if(isEmpty){
+    document.getElementById("numbers").hidden=false
+    document.getElementById("clear").style.display="block"
+    document.getElementById(cell).style.cursor="pointer"
+  }
 }
 
 function UpdateBoard(){
@@ -216,7 +225,7 @@ function Print(list, str)
 {
   for(i=0; i<list.length; i++)
   {
-      document.querySelector("#"+str+(1+i)).innerText=list[i]; 
+      document.querySelector("#"+str+(1+i)).innerText=list[i];
   }
 }
 
@@ -283,7 +292,8 @@ function RemCell(length)
 function Check()
 {
   var numExist;
-  for(i=0; i<remNum.length; i++)
+  // for(i=0; i<remNum.length; i++)
+  for(i=remNum.length-1; i >= 0; i--)
   { 
         var line = []
         line = remNum[i].charAt(2)
@@ -388,6 +398,13 @@ let num = line1[indexNum];
               stopStopwatch();
            
               document.getElementById("test").style.visibility = "visible";
+              document.getElementById("hard").innerHTML="Hard"
+              document.getElementById("medium").innerHTML="Medium"
+              document.getElementById("easy").innerHTML="Easy"
+              document.getElementById("easy").style.background="DarkBlue"
+              document.getElementById("medium").style.background="DarkBlue"
+              document.getElementById("hard").style.background="DarkBlue"
+
               // document.getElementById("test").innerHTML="Good job!";
             }
 }
