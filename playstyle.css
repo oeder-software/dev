@@ -10,7 +10,7 @@
   .board{
     margin-left: auto;
     margin-right: auto;
-    background-color: blue;
+    background-color: #dffaf9;
   }
   .cell td{
   width: 30px;
@@ -66,14 +66,16 @@
   }
 
   .buttonNum{
-   display: inline-block;
+   
    width:31px;
-   padding:0px, 3px;
-   margin: 4px 2px;
+   height: 31px;;
+   padding:0px, 0px;
+   margin: 0px 0px;
    text-align: center;
    font-size: 16px;
    background-color:darkblue;
    color: white;
+   cursor: pointer;
   
   
   }
@@ -83,6 +85,10 @@
   .buttons{
     margin-left: auto;
     margin-right: auto;
+    ;
+  }
+  .buttons td{
+    height: 31px;;
   }
   .frame{
     width: 100%;
@@ -97,4 +103,7 @@
   }
   #test{
     color:darkblue;
+  }
+  .startgame td{
+    height: 31px;
   }
