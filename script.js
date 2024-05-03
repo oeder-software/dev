@@ -106,7 +106,7 @@ function Easy(){
   document.getElementById("hard").innerHTML="hard"
   document.getElementById("test").style.visibility = "hidden";
   UpdateBoard()
-  RemCell(2)
+  RemCell(15)
 }
 function Medium(){
     stopStopwatch()
