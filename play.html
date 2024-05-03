@@ -11,7 +11,7 @@
 </head>
 <iframe class="frame" src="header.html" frameborder="2" scrolling="no"> </iframe>
 <body>
-  <h1 id="head">Play Sudoku</h1>
+  <h1 id="head">Play Suduko</h1>
     <table class="startgame">
       <tr>
         <td><button id="easy" class="buttonstart" onclick="Easy()">easy</button></td>
@@ -19,14 +19,15 @@
         <td><button id="hard" class="buttonstart" onclick="Hard()">Hard</button></td>
       </tr>
     </table>
+    <br>
 <table class="board" border-color='black' border="1px">
 <tr border-color='black'>
 <td>
 <table class="cell" border-color='black' padding='0px' border='1px'> 
   <tr>
-   <td  id="l11" onclick="OnClickCell('l11')"></td>
-   <td  id="l12" onclick="OnClickCell('l12')"></td>
-   <td  id="l13" onclick="OnClickCell('l13')"></td>
+   <td  id="l11" onclick="OnClickCell('l11')" ></td>
+   <td  id="l12" onclick="OnClickCell('l12')" ></td>
+   <td  id="l13" onclick="OnClickCell('l13')" ></td>
   </tr>
    <td  id="l21" onclick="OnClickCell('l21')"></td>
    <td  id="l22" onclick="OnClickCell('l22')"></td>
@@ -164,23 +165,34 @@
    <td id="l98" onclick="OnClickCell('l98')"></td>
    <td id="l99" onclick="OnClickCell('l99')"></td>
   </tr>
-</table></td>
+</table>
+</td>
 </tr>
 </table>
-<table class="buttons">
+<br>
+<table id="numbers" class="buttons" hidden>
   <tr>
-    <td>
-    <button class="buttonNum" onclick=InsertNumber(1)>1</button>
-    <button class="buttonNum" onclick=InsertNumber(2)>2</button>
-    <button class="buttonNum" onclick=InsertNumber(3)>3</button>
-    <button class="buttonNum" onclick=InsertNumber(4)>4</button>
-    <button class="buttonNum" onclick=InsertNumber(5)>5</button>
-    <button class="buttonNum" onclick=InsertNumber(6)>6</button>
-    <button class="buttonNum" onclick=InsertNumber(7)>7</button>
-    <button class="buttonNum" onclick=InsertNumber(8)>8</button>
-    <button class="buttonNum" onclick=InsertNumber(9)>9</button>
-    <button class="buttonNum" onclick="InsertNumber('')">X</button>
-    </td></tr></table>
+    <td><button class="buttonNum" onclick=InsertNumber(1)>1</button></td>
+    <td><button class="buttonNum" onclick=InsertNumber(2)>2</button></td> 
+    <td><button class="buttonNum" onclick=InsertNumber(3)>3</button></td>
+  </tr>
+  <tr>
+    <td><button class="buttonNum" onclick=InsertNumber(4)>4</button></td>
+    <td><button class="buttonNum" onclick=InsertNumber(5)>5</button></td> 
+    <td><button class="buttonNum" onclick=InsertNumber(6)>6</button></td>
+  </tr>
+  <tr>
+    <td><button class="buttonNum" onclick=InsertNumber(7)>7</button></td>
+    <td><button class="buttonNum" onclick=InsertNumber(8)>8</button></td> 
+    <td><button class="buttonNum" onclick=InsertNumber(9)>9</button></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><button id="clear" class="buttonNum" onclick="InsertNumber('')" style="display: none">X</button></td>
+    <td></td>
+  </tr>
+</table>
+  
     <table class="buttons">
   <tr>
     <td>
