@@ -67,10 +67,10 @@
 
   .buttonNum{
    
-   width:31px;
+   width:40px;
    height: 31px;;
    padding:0px, 0px;
-   margin: 0px 0px;
+   margin: 3px 3px;
    text-align: center;
    font-size: 16px;
    background-color:darkblue;
@@ -88,7 +88,8 @@
     ;
   }
   .buttons td{
-    height: 31px;;
+    height: 31px;
+    width: 40px;
   }
   .frame{
     width: 100%;
