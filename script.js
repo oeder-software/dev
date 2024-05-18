@@ -21,7 +21,7 @@ var level = "easy";
 function OnClickCell(cell)
 {
   document.getElementById("clear").style.display="none"
-  document.getElementById(cell).style.cursor="not-allowed"
+  document.getElementById(cell).style.cursor="pointer"
   document.getElementById("numbers").hidden=true
   RemCellColor()
   var indexOfLine = cell[1];
@@ -30,10 +30,12 @@ function OnClickCell(cell)
   var empCell = "#" + cell;
   var isEmpty = false;
   remNum.forEach(item => {
+      document.getElementById("l"+item[2]+item[3]).style.background="white";
+    });
+
+  remNum.forEach(item => {
     if(item == empCell){
       isEmpty = true;
-      //document.getElementById(cell).style.background="#dffaf9"
-      //document.getElementById("clear").style.display="block"
       for(i = 1; i < 10; i++)
       {
         document.getElementById('l' + indexOfLine + i).style.background="#dffaf9"
@@ -42,15 +44,104 @@ function OnClickCell(cell)
       {
         document.getElementById('l' + i+ indexOfPosition).style.background="#dffaf9"
       }
-      //document.getElementById(cell).style.background='white'
     }
   });
   if(isEmpty){
     document.getElementById("numbers").hidden=false
     document.getElementById("clear").style.display="block"
-    document.getElementById(cell).style.cursor="pointer"
+    document.getElementById(cell).style.cursor="crosshair"
   }
-}
+  if(!isEmpty)
+    {
+      var list = [l1, l2, l3, l4, l5, l6, l7, l8, l9];
+      var chosenNum = document.getElementById(cell).innerHTML;
+      document.getElementById(cell).style.backgroundColor="pink"
+      var greenCell = [];
+      greenCell = remNum.slice();
+        for(i = 0; i<9; i++)
+        {
+            for(j=0; j<9; j++)
+              {
+                var numIsNull = true;
+                var line = list[i];
+                var lineNum = line[j];
+                if(chosenNum == lineNum)
+                  {
+                    remNum.forEach(number => 
+                      {
+                        if(number == "#l" + (i+1) + (j+1))
+                          {
+                            numIsNull = false;
+                          }
+                      });
+                        if(numIsNull == true)
+                          {
+                            remNum.forEach(item => 
+                              {
+                                
+                                
+                                      var indexOfLineOther = i+1
+                                      var indexOfPositionOther = j+1
+                                      var lineStartOther;
+                                      var lineEndOther;
+                                      var posStartOther;
+                                      var posEndOther;
+                                      if(indexOfLineOther < 4){
+                                        lineEndOther = 4;
+                                        lineStartOther = 0;
+                                      }
+                                      if(indexOfLineOther > 3 && indexOfLineOther < 7){
+                                        lineEndOther = 7;
+                                        lineStartOther = 3
+                                      }
+                                      if(indexOfLineOther > 6 && indexOfLineOther < 10){
+                                        lineEndOther = 10;
+                                        lineStartOther = 6
+                                      }
+                                      if( indexOfPositionOther < 4){
+                                        posEndOther = 4;
+                                        posStartOther = 0;
+                                      }
+                                      if( indexOfPositionOther > 3 &&  indexOfPositionOther < 7){
+                                        posEndOther = 7;
+                                        posStartOther = 3
+                                      }
+                                      if( indexOfPositionOther > 6 &&  indexOfPositionOther < 10){
+                                        posEndOther = 10;
+                                        posStartOther = 6
+                                      }
+                                    
+                                          remNum.forEach(el => 
+                                            {
+                                              if(el[3] > posStartOther && el[3] < posEndOther && el[2] > lineStartOther && el[2] < lineEndOther)
+                                                {
+                                                  document.getElementById("l"+el[2]+el[3]).style.background="red";
+                                                  greenCell.splice(greenCell.indexOf("#l" +el[2]+el[3]),1)
+                                                }
+                                            });
+                                          if(item[2] == indexOfLineOther)
+                                            {
+                                              document.getElementById("l" + item[2] + item[3]).style.background="red";
+                                              greenCell.splice(greenCell.indexOf("#l" +item[2]+item[3]),1)
+                                            }
+                                          if(item[3] == indexOfPositionOther)
+                                            {
+                                              document.getElementById("l" + item[2] + item[3]).style.background="red";
+                                              greenCell.splice(greenCell.indexOf("#l" +item[2]+item[3]),1)
+                                            }
+                                            greenCell.forEach(green => {
+                                              document.getElementById("l" + green[2] + green[3]).style.backgroundColor="lightgreen"
+                                                         });
+                                          });     
+                                        }   
+                                        
+                                      }
+                                    }        
+                                  }
+                                }
+        var newinse = document.querySelector(cell).innerText;
+  }
+
 
 function UpdateBoard(){
 l1 = ['e','f','c','h','g','i','b','a','d'];
@@ -106,7 +197,7 @@ function Easy(){
   document.getElementById("hard").innerHTML="hard"
   document.getElementById("test").style.visibility = "hidden";
   UpdateBoard()
-  RemCell(15)
+  RemCell(30)
 }
 function Medium(){
     stopStopwatch()
@@ -120,7 +211,7 @@ function Medium(){
   document.getElementById("hard").innerHTML="hard"
   document.getElementById("test").style.visibility = "hidden";
   UpdateBoard()
-  RemCell(30)
+  RemCell(50)
 
 }
 function Hard(){
@@ -138,7 +229,7 @@ function Hard(){
   document.getElementById("medium").innerHTML="medium"
   document.getElementById("test").style.visibility = "hidden";
   UpdateBoard()
-  RemCell(40)
+  RemCell(70)
 
 }
 function RandomSeed (arrayIn,length, arrayOut)
@@ -242,51 +333,61 @@ function RemCell(length)
     Print(l8, 'l8');
     Print(l9, 'l9');
     
-    while(remNum.length < length)
-    {
-        for(i=0; i<81; i++)
+    for(i=0; i<length * 2; i++)
     {  
       var rndInt = randomLI(1, 9, rndList);
       rndList.push(rndInt);
-      }
-      for(i=0; i<81; i++)
-        {
-          var rndInt = randomLI(0,8, rndIndex);
-          rndIndex.push(rndInt);
-        }
-      for(i=0; i<length; i++)
-    {
-        let cellToRem= '#l'+ rndList[i] + (rndIndex[i]+1);
-        //document.querySelector(cellToRem).innerHTML="<input type = 'text'>"
-        document.querySelector(cellToRem).innerHTML=""
-
-        remNum.push(cellToRem)
-        let reprociList = 9-rndList[i] + 1;
-        let reprociIndex = 9-rndIndex[i]
-        let reprociCellToRem = '#l' + reprociList + reprociIndex
-        document.querySelector(reprociCellToRem).innerHTML=""
-        // document.querySelector(reprociCellToRem).innerHTML="<input type = 'text'>"
-
-        remNum.push(reprociCellToRem)
     }
-    for (i=0; i<remNum.length; i++)
+    for(i=0; i<length * 2; i++)
     {
-      var num = 0;
-      for(j=0; j<remNum.length; j++ )
-      {
-        if(remNum[i] == remNum[j])
+      var rndInt = randomLI(0, 8, rndIndex);
+      rndIndex.push(rndInt);
+    }
+    // while(remNum.length < length)
+    // {
+      for(i=0; i<length * 2; i++){
+
+        let cellToRem= '#l'+ rndList[i] + (rndIndex[i]+1);
+        // document.querySelector(cellToRem).innerHTML=""
+        remNum.push(cellToRem)
+
+      }
+
+        // for(i=0; i<length; i++)
+        // {
+        //   let cellToRem= '#l'+ rndList[i] + (rndIndex[i]+1);
+        //   document.querySelector(cellToRem).innerHTML=""
+        //   remNum.push(cellToRem)
+        // }
+        for (i=remNum.length-1; i > -1; i--)
         {
-          num++;
-          if(num>1)
+          var num = 0;
+          for(j=remNum.length-1; j > -1; j--)
           {
-            var indx = remNum.indexOf(remNum[j])
-            remNum.splice(indx, 1)
-            num--;
+            if(remNum[i] == remNum[j])
+            {
+              num++;
+              if(num>1)
+              {
+                var indx = remNum.indexOf(remNum[j])
+                remNum.splice(indx, 1)
+                num--;
+              }
+            }
+          }
+          
+        }
+        while(remNum.length > length + 1){
+          for(i=remNum.length-1; i>length; i--){
+            remNum.splice(i, 1)
           }
         }
-      }
-    }
-}
+      for(i=0; i<remNum.length; i++)
+        {
+          // let cellToRem= '#l'+ rndList[i] + (rndIndex[i]+1);
+          document.querySelector(remNum[i]).innerHTML=""
+          // remNum.push(cellToRem)
+        }
 }
 
 function Check()
