@@ -1,80 +1,186 @@
 <!DOCTYPE html>
 <html>
-   <head>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Georg Christian Oeder nad Family tree of Nicolai Gottfried Oeder ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-</head> 
-    <iframe class="frame" src="header.html" frameborder="2" scrolling="no"> </iframe>
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 10px;
+            padding: 10px;
+            width: 90vw;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50vw;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .grid-container div {
+            text-align: center;
+            padding: 20px 0;
+            background-color: rgb(255, 255, 255);
+        }
+
+        main {
+            margin-top: 50px;
+        }
+
+        .restimg {
+            width: 200px;
+        }
+
+        #resttable {
+            width: 90vw;
+        }
+
+        .item10 {
+            grid-column: 1 / span 3;
+        }
+
+        @media(max-width: 1200px) {
+            main {
+                margin-top: 15px;
+            }
+
+            .restimg {
+                width: 150px;
+            }
+
+            .grid-container {
+                width: 80vw;
+            }
+        }
+
+        @media(max-width: 600px) {
+            main {
+                margin-top: 15px;
+            }
+
+            .restimg {
+                width: 100px;
+            }
+
+            .grid-container {
+                width: 90vw;
+                gap: 5px;
+            }
+        }
+    </style>
+    <title id="title">home</title>
+</head>
+
 <body>
-<h1>Cabin Crew Rest Calculator</h1>
-<h2>
-    2 periods.
-</h2>
-<table class="indexTable" align="center" style="width: 800px;">
-<tr>
-    <td style="height: 200pxS;">
-        <img src="IMG_4638.png" height="300px">
-    </td>
-    <td style="width: 100%;" align="center">
-        <h2>For the best result, use 5 minutes intervals, 0 ,5, 10...</h2>
-       <h3>Start time and end time: All periods will be calculated in whole intervals of 5 minutes. Regardless of the choosen start and end time. </h3><br>
-       <h3>Gab: Must be less than the interval between start and end time. 
-        If not the time will be displayed in red and an alert wil be shown. Gab will be usede between all periods.</h3><br>
+    <header> <iframe id="frameindex" class="frame" src="header.html" frameborder="2" scrolling="no"> </iframe>
+    </header>
 
-    </td>
-    <td>
-        <img src="IMG_4639.png" height="300px">
-    </td>
-</tr>
-</table>
-<h2>
-    3 periods.
-</h2>
-<table class="indexTable" align="center" style="width: 800px;">
-    <tr>
-        <td style="height: 350pxS;">
-            <img src="IMG_4641.png" width="200px">
-        </td>
-        <td style="width: 100%;" align="center">
-           <h3></h3><br>
-           <h3>User-defined period: Choose 1 of the 3 periods to be longer or shorter than the calculated periods. 
-            The choosen time must be less than the time interval minus the gab. Otherwise an alert wil be shown and the choosen time wil be displayed in red, 
-            and periods will not be calculated. Use intervals of 5 minutes for best result.</h3><br>
-        </td>
-        <td>
-            <img src="IMG_4640.png" width="200px">
-    
-        </td>
-    
-    </tr>
-    </table>
-    <h2>
-        4 periods.
-    </h2>
-    
-    <table class="indexTable" align="center" style="width: 800px;">
-        <tr>
-            <td style="height: 350pxS;">
-                <img src="4p.JPG" width="200px">
-            </td>
-            <td style="width: 100%;" align="center">
-               <h3></h3><br>
-               <h3>User-defined periods: Choose 1 - 4 periods to be longer or shorter than the calculated periods. 
-                The choosen periode length multiplyed by number of periods must be less than the time interval minus gab. 
-            If the user-defined period is to long, time will be red and an alert will be visible. Periods wil be calculated when user-defined is within range.</h3><br>
-                <h3>Useer-defined gab: Choose 1 of the 3 gabs to be longer or shorter. 
-                    The User-defined gab must be less than the time interval minus gab and user-defined periods.
-                    An alert wil be visible and time will be red if user-defined gab is outside the range.
-                </h3><br>
-                <h2>For the best result, use 5 minutes intervals</h2>
-            </td>
-            <td>
-                <img src="4pf.JPG" width="200px">
-        
-            </td>
-        
-        </tr>
-        </table>
-        <iframe class="framefooter" src="footer.html" frameborder="2" scrolling="no"> </iframe>
+    <nav class="navbar">
+        <ul class="list">
 
+            <li class="listelement"><a id="home" href="index.html">Home</a></li>
+            <li class="listelement"><a id="ccrest" href="ccrest.html">CC Rest Calculator</a></li>
+
+            <li class="menubut" id="menubut" onclick="showSidebar(); return false"><a href=""><img
+                        src="./img/menubut1.png" alt="menu" width="20px" height="20px"></a></li>
+        </ul>
+        <ul class="sidebar">
+            <p onclick="closeSidebar();" id="closebut"><img id="closebut" src="./img/closebut.png" alt="close menu"
+                    width="30px" height="30px" style="color: black;"></p>
+            <li onclick="closeSidebar();"><a id="homem" href="index.html">Home</a></li>
+            <li onclick="closeSidebar();"><a id="ccrest" href="ccrest.html">CC Rest Calculator</a></li>
+        </ul>
+    </nav>
+    <div class="grid-container" onclick="closeSidebar();">
+        <div class="item10">
+            <h3 style="text-align: center;"> For the best result, use 5 minutes intervals, 0 ,5, 10...</h3>
+
+        </div>
+        <div class="item1">
+            <img src="./img/2p.png" alt="" class="restimg">
+
+        </div>
+        <div class="item2">
+            <p>
+                Start time and end time: All periods will be calculated in whole intervals of 5 minutes.
+                Regardless
+                of the choosen start
+                and end time.
+                <br>
+                <br>
+                Gap: Must be less than the interval between start and end time. If not the time will be
+                displayed in
+                red and an alert
+                wil be shown. Gap will be usede between all periods.
+            </p>
+
+        </div>
+        <div class="item3">
+            <img src="./img/2pf.png" alt="" class="restimg">
+
+        </div>
+        <div class="item4">
+            <img src="./img/3p.png" alt="" class="restimg">
+
+        </div>
+        <div class="item5">
+            <p>
+                User-defined period: Choose 1 of the 3 periods to be longer or shorter than the
+                calculated
+                periods.
+                The choosen time
+                must be less than the time interval minus the gap. Otherwise an alert wil be shown and
+                the
+                choosen
+                time wil be displayed
+                in red, and periods will not be calculated.</p>
+
+        </div>
+        <div class="item6">
+            <img src="./img/3pf.png" alt="" class="restimg">
+
+        </div>
+        <div class="item7">
+            <img src="./img/4p.jpeg" alt="" class="restimg">
+
+        </div>
+        <div class="item8">
+            <p>
+                User-defined periods: Choose 1 - 4 periods to be longer or shorter than the calculated
+                periods. The
+                choosen periode
+                length multiplyed by number of periods, must be less than the time interval minus gap.
+                <br>
+                If the
+                user-defined period is to
+                long, time will be red and an alert will be visible. <br>
+                Periods wil be calculated when
+                user-defined is
+                within range.
+                <br><br>
+                Useer-defined gap: Choose 1 of the 3 gaps to be longer or shorter. The User-defined gab
+                must
+                be less
+                than the time
+                interval minus gap and user-defined periods. An alert wil be visible and time will be
+                red if
+                user-defined gap is outside
+                the range.
+            </p>
+        </div>
+        <div class="item9">
+            <img src="./img/4pf.jpeg" alt="" class="restimg">
+
+        </div>
+    </div>
+    </main>
+    <footer> <iframe id="framefooter" src="footer.html" frameborder="2" scrolling="no"> </iframe>
+    </footer>
+    <script src="pagescript.js"></script>
 </body>
+
 </html>
