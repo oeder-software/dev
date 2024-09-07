@@ -119,18 +119,13 @@ header {
   margin-top: auto;
   margin-bottom: auto;
 }
-footer {
-  background-color: rgb(255, 255, 255);
-  padding: 0px;
-  position: absolute;
-  width: 100%;
-}
+
 #indeximage {
   width: 400px;
 }
 
 #framefooter {
-  width: 80%;
+  width: 100%;
   height: 40px;
   margin-top: auto;
   margin-bottom: 0px;
@@ -138,8 +133,6 @@ footer {
   margin-right: 10%;
   align-content: center;
   border: 0cm;
-  position: static;
-  top: 0;
   z-index: 10;
   background-color: rgb(255, 255, 255);
   vertical-align: baseline;
