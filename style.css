@@ -159,7 +159,8 @@ main {
   .main {
     width: 100%;
     vertical-align: top;
-    background-color: rgb(255, 255, 255);
+        background-color: transparent;
+
     height: 80%;
   }
 }
