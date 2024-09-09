@@ -108,6 +108,7 @@ main {
   text-align: left;
   width: 50vw;
   height: 80%;
+  background-color: transparent;
 }
 header {
   background-color: white;
