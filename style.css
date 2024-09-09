@@ -1,17 +1,19 @@
 body {
   width: 100%;
+  height: 85vh;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   height: 100%;
 }
-body::after {
+/* body::after {
   display: block;
   height: 50px;
   content: "";
   width: 100%;
   background-color: rgb(255, 255, 255);
 }
+ */
 nav {
   font-size: 16px;
   width: 100%;
@@ -56,7 +58,7 @@ nav {
   display: none;
 }
 main {
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   padding: 5px;
   flex: 5 5 200px;
   max-width: 75vw;
@@ -119,7 +121,6 @@ header {
   margin-top: auto;
   margin-bottom: auto;
 }
-
 #indeximage {
   width: 400px;
 }
@@ -134,7 +135,7 @@ header {
   align-content: center;
   border: 0cm;
   z-index: 10;
-  background-color: rgb(255, 255, 255);
+  background-color: tran;
   vertical-align: baseline;
 }
 #contbut {
@@ -148,7 +149,7 @@ a {
 
 main {
   height: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
 }
 @media (max-width: 800px) {
   #imgind {
