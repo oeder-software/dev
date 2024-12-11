@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Sudoko</title>
+    <div>
+    </div>
+    <link rel="stylesheet" href="playstyle.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* table  td
+{
+    background-color: transparent;
+        }
+        #div1 table tr td{
+            background-color: transparent;
+        } */
+    </style>
+</head>
+<!-- <iframe class="frame" src="header.html" frameborder="2" scrolling="no"> </iframe> -->
+
+<body>
+    <h1 id="head">Play </h1>
+    <h3 id="hint">Click on a number on the board to see the possible cells. </h3>
+    <h3 id="hint1">Click Check before and after. </h3>
+    <table class="startgame">
+        <tr>
+            <td><button id="veryeasy" class="buttonstart" onclick="VeryEasy()">Very easy</button></td>
+            <td><button id="easy" class="buttonstart" onclick="Easy()">Easy</button></td>
+            <td><button id="medium" class="buttonstart" onclick="Medium()">Medium</button></td>
+            <td><button id="hard" class="buttonstart" onclick="Hard()">Hard</button></td>
+            <td><button id="impossible" class="buttonstart" onclick="Impossible()">Impossible</button></td>
+        </tr>
+    </table>
+    <br>
+    </td>
+    </tr>
+    </table>
+    <div class="flex-container"
+        style="display: flex; width: 600px; margin-left: auto; margin-right: auto; justify-content: center; align-items: center;">
+        <div class="flex-item1 flexbox"></div>
+        <div class="container"
+            style="position: relative; height: 330px; width: 330px; margin-left: auto; margin-right: auto;">
+            <div id="div1" background-color="transparent;">
+                <table class="board" id="t1" border-color='darkblue' border="0px"
+                    style="background-color: transparent; position: relative; width: 330px; height: 330px">
+                    <tr border-color='darkblue'>
+                        <td>
+                            <table class="cell" border-color='darkblue' padding='0px' border='1px'
+                                style="background-color: transparent;">
+                                <tr>
+                                    <td id="l11" onclick="OnClickCell('l11')"></td>
+                                    <td id="l12" onclick="OnClickCell('l12')"></td>
+                                    <td id="l13" onclick="OnClickCell('l13')"></td>
+                                </tr>
+                                <tr>
+                                    <td id="l21" onclick="OnClickCell('l21')"></td>
+                                    <td id="l22" onclick="OnClickCell('l22')"></td>
+                                    <td id="l23" onclick="OnClickCell('l23')"></td>
+                                </tr>
+                                <tr>
+                                    <td id="l31" onclick="OnClickCell('l31')"></td>
+                                    <td id="l32" onclick="OnClickCell('l32')"></td>
+                                    <td id="l33" onclick="OnClickCell('l33')"></td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td>
+                            <table class="cell" border-color='black' padding='0px' border='1px'>
+                                <tr>
+                                    <td id="l14" onclick="OnClickCell('l14')"></td>
+                                    <td id="l15" onclick="OnClickCell('l15')"></td>
+                                    <td id="l16" onclick="OnClickCell('l16')"></td>
+                                </tr>
+                                <td id="l24" onclick="OnClickCell('l24')"></td>
+                                <td id="l25" onclick="OnClickCell('l25')"></td>
+                                <td id="l26" onclick="OnClickCell('l26')"></td>
+                    </tr>
+                    <td id="l34" onclick="OnClickCell('l34')"></td>
+                    <td id="l35" onclick="OnClickCell('l35')"></td>
+                    <td id="l36" onclick="OnClickCell('l36')"></td>
+                    </tr>
+                </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="l17" onclick="OnClickCell('l17')"></td>
+                            <td id="l18" onclick="OnClickCell('l18')"></td>
+                            <td id="l19" onclick="OnClickCell('l19')"></td>
+                        </tr>
+                        <tr>
+                        <td id="l27" onclick="OnClickCell('l27')"></td>
+                        <td id="l28" onclick="OnClickCell('l28')"></td>
+                        <td id="l29" onclick="OnClickCell('l29')"></td>
+                        </tr>
+                        <tr>
+                        <td id="l37" onclick="OnClickCell('l37')"></td>
+                        <td id="l38" onclick="OnClickCell('l38')"></td>
+                        <td id="l39" onclick="OnClickCell('l39')"></td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="l41" onclick="OnClickCell('l41')"></td>
+                            <td id="l42" onclick="OnClickCell('l42')"></td>
+                            <td id="l43" onclick="OnClickCell('l43')"></td>
+                        </tr>
+                        <tr>
+                        <td id="l51" onclick="OnClickCell('l51')"></td>
+                        <td id="l52" onclick="OnClickCell('l52')"></td>
+                        <td id="l53" onclick="OnClickCell('l53')"></td>
+                        </tr>
+                        <tr>
+                        <td id="l61" onclick="OnClickCell('l61')"></td>
+                        <td id="l62" onclick="OnClickCell('l62')"></td>
+                        <td id="l63" onclick="OnClickCell('l63')"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="l44" onclick="OnClickCell('l44')"></td>
+                            <td id="l45" onclick="OnClickCell('l45')" style="background-color: transparent;"></td>
+                            <td id="l46" onclick="OnClickCell('l46')"></td>
+                        </tr>
+                        <td id="l54" onclick="OnClickCell('l54')"></td>
+                        <td id="l55" onclick="OnClickCell('l55')"></td>
+                        <td id="l56" onclick="OnClickCell('l56')"></td>
+                        </tr>
+                        <td id="l64" onclick="OnClickCell('l64')"></td>
+                        <td id="l65" onclick="OnClickCell('l65')"></td>
+                        <td id="l66" onclick="OnClickCell('l66')"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="l47" onclick="OnClickCell('l47')"></td>
+                            <td id="l48" onclick="OnClickCell('l48')"></td>
+                            <td id="l49" onclick="OnClickCell('l49')"></td>
+                        </tr>
+                        <td id="l57" onclick="OnClickCell('l57')"></td>
+                        <td id="l58" onclick="OnClickCell('l58')"></td>
+                        <td id="l59" onclick="OnClickCell('l59')"></td>
+                        </tr>
+                        <td id="l67" onclick="OnClickCell('l67')"></td>
+                        <td id="l68" onclick="OnClickCell('l68')"></td>
+                        <td id="l69" onclick="OnClickCell('l69')"></td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="l71" onclick="OnClickCell('l71')"></td>
+                            <td id="l72" onclick="OnClickCell('l72')"></td>
+                            <td id="l73" onclick="OnClickCell('l73')"></td>
+                        </tr>
+                        <td id="l81" onclick="OnClickCell('l81')"></td>
+                        <td id="l82" onclick="OnClickCell('l82')"></td>
+                        <td id="l83" onclick="OnClickCell('l83')"></td>
+                        </tr>
+                        <td id="l91" onclick="OnClickCell('l91')"></td>
+                        <td id="l92" onclick="OnClickCell('l92')"></td>
+                        <td id="l93" onclick="OnClickCell('l93')"></td>
+                        </tr>
+                        <tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="l74" onclick="OnClickCell('l74')"></td>
+                            <td id="l75" onclick="OnClickCell('l75')"></td>
+                            <td id="l76" onclick="OnClickCell('l76')"></td>
+                        </tr>
+                        <td id="l84" onclick="OnClickCell('l84')"></td>
+                        <td id="l85" onclick="OnClickCell('l85')"></td>
+                        <td id="l86" onclick="OnClickCell('l86')"></td>
+                        </tr>
+                        <td id="l94" onclick="OnClickCell('l94')"></td>
+                        <td id="l95" onclick="OnClickCell('l95')"></td>
+                        <td id="l96" onclick="OnClickCell('l96')"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="l77" onclick="OnClickCell('l77')"></td>
+                            <td id="l78" onclick="OnClickCell('l78')"></td>
+                            <td id="l79" onclick="OnClickCell('l79')"></td>
+                        </tr>
+                        <td id="l87" onclick="OnClickCell('l87')"></td>
+                        <td id="l88" onclick="OnClickCell('l88')"></td>
+                        <td id="l89" onclick="OnClickCell('l89')"></td>
+                        </tr>
+                        <td id="l97" onclick="OnClickCell('l97')"></td>
+                        <td id="l98" onclick="OnClickCell('l98')"></td>
+                        <td id="l99" onclick="OnClickCell('l99')"></td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+                </table>
+            </div>
+            <div id="div2" margin-left: auto; margin-right: auto; style="background-color: transparent;">
+                <table class="board" border-color='darkblue' border="1px" id="t2"
+                    style="top: 0; background-color: transparent; position: absolute;  width: 330px; height: 330px">
+                    <tr border-color='darkblue'>
+                        <td>
+                            <table class="cell" id="firstcell" border-color='darkblue' padding='0px' border='1px '>
+                                <tr>
+                                    <td id="al11" onclick="OnClickCell('al11')"></td>
+                                    <td id="al12" onclick="OnClickCell('al12')"></td>
+                                    <td id="al13" onclick="OnClickCell('al13')"></td>
+                                </tr>
+                                <td id="al21" onclick="OnClickCell('al21')"></td>
+                                <td id="al22" onclick="OnClickCell('al22')"></td>
+                                <td id="al23" onclick="OnClickCell('al23')"></td>
+                    </tr>
+                    <td id="al31" onclick="OnClickCell('al31')"></td>
+                    <td id="al32" onclick="OnClickCell('al32')"></td>
+                    <td id="al33" onclick="OnClickCell('al33')"></td>
+                    </tr>
+                </table>
+
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="al14" onclick="OnClickCell('al14')"></td>
+                            <td id="al15" onclick="OnClickCell('al15')"></td>
+                            <td id="al16" onclick="OnClickCell('al16')"></td>
+                        </tr>
+                        <td id="al24" onclick="OnClickCell('al24')"></td>
+                        <td id="al25" onclick="OnClickCell('al25')"></td>
+                        <td id="al26" onclick="OnClickCell('al26')"></td>
+                        </tr>
+                        <td id="al34" onclick="OnClickCell('al34')"></td>
+                        <td id="al35" onclick="OnClickCell('al35')"></td>
+                        <td id="al36" onclick="OnClickCell('al36')"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="al17" onclick="OnClickCell('al17')"></td>
+                            <td id="al18" onclick="OnClickCell('al18')"></td>
+                            <td id="al19" onclick="OnClickCell('al19')"></td>
+                        </tr>
+                        <td id="al27" onclick="OnClickCell('al27')"></td>
+                        <td id="al28" onclick="OnClickCell('al28')"></td>
+                        <td id="al29" onclick="OnClickCell('al29')"></td>
+                        </tr>
+                        <td id="al37" onclick="OnClickCell('al37')"></td>
+                        <td id="al38" onclick="OnClickCell('al38')"></td>
+                        <td id="al39" onclick="OnClickCell('al39')"></td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="al41" onclick="OnClickCell('al41')"></td>
+                            <td id="al42" onclick="OnClickCell('al42')"></td>
+                            <td id="al43" onclick="OnClickCell('al43')"></td>
+                        </tr>
+                        <td id="al51" onclick="OnClickCell('al51')"></td>
+                        <td id="al52" onclick="OnClickCell('al52')"></td>
+                        <td id="al53" onclick="OnClickCell('al53')"></td>
+                        </tr>
+                        <td id="al61" onclick="OnClickCell('al61')"></td>
+                        <td id="al62" onclick="OnClickCell('al62')"></td>
+                        <td id="al63" onclick="OnClickCell('al63')"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="al44" onclick="OnClickCell('al44')"></td>
+                            <td id="al45" onclick="OnClickCell('al45')"></td>
+                            <td id="al46" onclick="OnClickCell('al46')"></td>
+                        </tr>
+                        <td id="al54" onclick="OnClickCell('al54')"></td>
+                        <td id="al55" onclick="OnClickCell('al55')"></td>
+                        <td id="al56" onclick="OnClickCell('al56')"></td>
+                        </tr>
+                        <td id="al64" onclick="OnClickCell('al64')"></td>
+                        <td id="al65" onclick="OnClickCell('al65')"></td>
+                        <td id="al66"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="al47" onclick="OnClickCell('al47')"></td>
+                            <td id="al48" onclick="OnClickCell('al48')"></td>
+                            <td id="al49" onclick="OnClickCell('al49')"></td>
+                        </tr>
+                        <td id="al57" onclick="OnClickCell('al57')"></td>
+                        <td id="al58" onclick="OnClickCell('al58')"></td>
+                        <td id="al59" onclick="OnClickCell('al59')"></td>
+                        </tr>
+                        <td id="al67" onclick="OnClickCell('al67')"></td>
+                        <td id="al68" onclick="OnClickCell('al68')"></td>
+                        <td id="al69" onclick="OnClickCell('al69')"></td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="al71" onclick="OnClickCell('al71')"></td>
+                            <td id="al72" onclick="OnClickCell('al72')"></td>
+                            <td id="al73" onclick="OnClickCell('al73')"></td>
+                        </tr>
+                        <td id="al81" onclick="OnClickCell('al81')"></td>
+                        <td id="al82" onclick="OnClickCell('al82')"></td>
+                        <td id="al83" onclick="OnClickCell('al83')"></td>
+                        </tr>
+                        <td id="al91" onclick="OnClickCell('al91')"></td>
+                        <td id="al92" onclick="OnClickCell('al92')"></td>
+                        <td id="al93" onclick="OnClickCell('al93')"></td>
+                        </tr>
+                        <tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="al74" onclick="OnClickCell('al74')"></td>
+                            <td id="al75" onclick="OnClickCell('al75')"></td>
+                            <td id="al76" onclick="OnClickCell('al76')"></td>
+                        </tr>
+                        <td id="al84" onclick="OnClickCell('al84')"></td>
+                        <td id="al85" onclick="OnClickCell('al85')"></td>
+                        <td id="al86" onclick="OnClickCell('al86')"></td>
+                        </tr>
+                        <td id="al94" onclick="OnClickCell('al94')"></td>
+                        <td id="al95" onclick="OnClickCell('al95')"></td>
+                        <td id="al96" onclick="OnClickCell('al96')"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="cell" border-color='black' padding='0px' border='1px'>
+                        <tr>
+                            <td id="al77" onclick="OnClickCell('al77')"></td>
+                            <td id="al78" onclick="OnClickCell('al78')"></td>
+                            <td id="al79" onclick="OnClickCell('al79')"></td>
+                        </tr>
+                        <td id="al87" onclick="OnClickCell('al87')"></td>
+                        <td id="al88" onclick="OnClickCell('al88')"></td>
+                        <td id="al89" onclick="OnClickCell('al89')"></td>
+                        </tr>
+                        <td id="al97" onclick="OnClickCell('al97')"></td>
+                        <td id="al98" onclick="OnClickCell('al98')"></td>
+                        <td id="al99" onclick="OnClickCell('al99')"></td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+                </table>
+
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+        <div class="flex-item2 flexbox" margin-left: 10px; width: 200px; margin-right: auto;>
+            <table id="numbers" class="buttons" hidden>
+                <tr>
+                    <td><button disabled id="buttonNum1" class="buttonNum" onclick=InsertNumber(1)>1</button></td>
+                    <td><button disabled id="buttonNum2" class="buttonNum" onclick=InsertNumber(2)>2</button></td>
+                    <td><button disabled id="buttonNum3" class="buttonNum" onclick=InsertNumber(3)>3</button></td>
+                </tr>
+                <tr>
+                    <td><button disabled id="buttonNum4" class="buttonNum" onclick=InsertNumber(4)>4</button></td>
+                    <td><button disabled id="buttonNum5" class="buttonNum" onclick=InsertNumber(5)>5</button></td>
+                    <td><button disabled id="buttonNum6" class="buttonNum" onclick=InsertNumber(6)>6</button></td>
+                </tr>
+                <tr>
+                    <td><button disabled id="buttonNum7" class="buttonNum" onclick=InsertNumber(7)>7</button></td>
+                    <td><button disabled id="buttonNum8" class="buttonNum" onclick=InsertNumber(8)>8</button></td>
+                    <td><button disabled id="buttonNum9" class="buttonNum" onclick=InsertNumber(9)>9</button></td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td><button disabled id="clear" class="buttonNum" onclick="InsertNumber('')"
+                            style="display: none"><img id="imgDel" src="delete-w.png" width="25px"><span
+                                class="info">Delete</span></button>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><button disabled id="anno" class="buttonNum" onclick=annotationoff()><img id="imgEdit"
+                                src="edit-w.png" width="25px"><span class="info">annotations</span></button></td>
+                    <td><button disabled class="buttonNum" id="add" type="submit" onclick=Cheat()><img id="imgAdd"
+                                src="add-w.png" width="25px"><span class="info">Add a number</span></button></td>
+                    <td><button disabled class="buttonNum" id="check" onclick=Check()><img id="imgCheck"
+                                src="check-w.png" width="25px"><span class="info">Check</span></button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <h1>
+        <div id="test"></div>
+    </h1>
+    <script src="script.js"></script>
+    <!-- <iframe class="framefooter" src="footer.html" frameborder="2" scrolling="no"> </iframe> -->
+
+</body>
+
+</html>
